@@ -1,0 +1,74 @@
+<div class="container">
+    <h1>Clientes</h1>
+
+    <h4>Alta de clientes</h4>
+    <div class="col-sm-4">
+        <p>
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.nombre">
+        </p>
+
+        <p>
+            <label for="">Domicilio</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.domicilio">
+        </p>
+
+        <p>
+            <label for="">RFC</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.rfc">
+        </p>
+
+        <p>
+            <label for="">Tipo Cliente</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.tipoCliente">
+        </p>
+
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="insertarCliente()">Insertar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="this.updateCliente()">
+                        Actualizar
+                    </button>
+                </td>
+
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="this.deleteCliente(cliente.id)">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Domicilio</th>
+            <th>RFC</th>
+            <th>Tipo Cliente</th>
+            <th>Seleccionar</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.domicilio}}</td>
+                <td>{{cliente.rfc}}</td>
+                <td>{{cliente.tipoCliente}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="selectCliente(cliente)">
+                        Seleccionar
+                    </button>
+                </td>
+
+               
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
